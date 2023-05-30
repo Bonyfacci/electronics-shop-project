@@ -10,6 +10,15 @@ from src.item import Item
 def test_item():
     return Item('One', 2, 3)
 
+
+def test_init(test_item):
+    assert test_item.name == 'One'
+    test_item.name = 'Three'
+    assert test_item.name == 'Three'
+    assert test_item.price == 2
+    assert test_item.quantity == 3
+
+
 def test_calculate_total_price(test_item):
     total_price = test_item.calculate_total_price()
     assert total_price == 6
