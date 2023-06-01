@@ -28,7 +28,7 @@ def test_calculate_total_price(test_item):
 
 
 def test_apply_discount(test_item):
-    discount = test_item.apply_discount()
-    assert discount == 2
-    discount_sale = test_item.apply_discount()
-    assert discount_sale == 2.0
+    test_item.apply_discount()
+    assert test_item.price == 2
+    test_item.apply_discount()
+    assert test_item.price == 2.0
