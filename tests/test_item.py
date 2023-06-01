@@ -32,3 +32,19 @@ def test_apply_discount(test_item):
     assert test_item.price == 2
     test_item.apply_discount()
     assert test_item.price == 2.0
+
+
+def test_name(test_item):
+    assert test_item.name == 'One'
+    test_item.name = '123456789012'
+    assert test_item.name == 'One'
+
+
+@pytest.mark.parametrize('number, extented', [
+    ('1', 1),
+    ('2', 2)
+])
+def test_string_to_number(number, extented):
+    assert Item.string_to_number(number) == extented
+    with pytest.raises(ValueError):
+        Item.string_to_number('fwaf')
