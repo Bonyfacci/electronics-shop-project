@@ -48,3 +48,14 @@ def test_string_to_number(number, extented):
     assert Item.string_to_number(number) == extented
     with pytest.raises(ValueError):
         Item.string_to_number('fwaf')
+
+
+# Homework-3
+
+
+def test__str__(test_item):
+    assert str(test_item) == 'One'
+
+
+def test__repr__(test_item):
+    assert repr(test_item) == "Item('One', 2, 3)"
