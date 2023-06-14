@@ -6,11 +6,6 @@ import pytest
 from src.item import Item
 
 
-@pytest.fixture
-def test_item():
-    return Item('One', 2, 3)
-
-
 def test_init(test_item):
     assert test_item.name == 'One'
     test_item.name = 'Three'
@@ -59,3 +54,11 @@ def test__str__(test_item):
 
 def test__repr__(test_item):
     assert repr(test_item) == "Item('One', 2, 3)"
+
+# Homework-4
+
+
+def test__add__(test_item, test_phone):
+    assert test_item + test_phone == 8
+    with pytest.raises(ValueError):
+        test_phone + test_item
