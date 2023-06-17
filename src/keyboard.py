@@ -24,3 +24,4 @@ class Keyboard(MixinLanguage, Item):
             self.__language = 'RU'
         else:
             self.__language = 'EN'
+        return self
