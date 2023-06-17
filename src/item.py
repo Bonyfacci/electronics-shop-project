@@ -98,3 +98,4 @@ class MixinLanguage:
             self.__language = 'RU'
         else:
             self.__language = 'EN'
+        return self
