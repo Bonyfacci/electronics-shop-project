@@ -3,7 +3,7 @@
 
 import pytest
 
-from src.item import Item
+from src.item import Item, InstantiateCSVError
 
 
 def test_init(test_item):
@@ -62,3 +62,14 @@ def test__add__(test_item, test_phone):
     assert test_item + test_phone == 8
     with pytest.raises(ValueError):
         test_phone + test_item
+
+# Homework-6
+
+
+def test_instantiate_from_csv(test_item):
+    test_item.instantiate_from_csv()
+    assert len(test_item.all) == 5
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv(filename='/src/No_name.csv')
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv(filename='../src/items_with_error.csv')
