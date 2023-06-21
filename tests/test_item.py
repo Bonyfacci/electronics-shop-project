@@ -70,6 +70,6 @@ def test_instantiate_from_csv(test_item):
     test_item.instantiate_from_csv()
     assert len(test_item.all) == 5
     with pytest.raises(FileNotFoundError):
-        Item.instantiate_from_csv(filename='/src/No_name.csv')
+        test_item.instantiate_from_csv(filename='No_name.csv')
     with pytest.raises(InstantiateCSVError):
-        Item.instantiate_from_csv(filename='../src/items_with_error.csv')
+        test_item.instantiate_from_csv(filename='items_with_error.csv')
